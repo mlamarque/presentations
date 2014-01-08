@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Intro Ruby</title>
+
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/beige.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+      <div class="slides">
+      <section>
+      	<h1>Ruby Basics</h1>
+      </section>
+
+      <section>
+        <h1>Naming convention</h1>
+        <ul>
+      <li>
+        Use CamelCase for classes and modules.</li>
+
+      <li>
+        Use snake_case for symbols, methods and variables</li>
+      <li>
+        The names of predicate methods (methods that return a boolean value) should end in a question mark</li>
+      <li>
+        The names of potentially dangerous methods (methods that modify self or the arguments, exit! etc.) should end with an exclamation mark.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h1>Require</h1>
+
+        <ul>
+      <li>
+        Add a ruby file in an other (with only for a path)</li>
+      </ul>
+      </section>
+
+
+
+      <section>
+        <h1>If else</h1>
+        <div>
+          <div>
+      x = 1
+
+      if x > 0
+        puts ' I am postif'
+      else
+        puts ' I am impossible '
+      end
+
+      if x > 0
+        puts 'I am postif'
+      elsif x < 0
+        puts ' I am negatif'
+      else
+        puts ' I am impossible'
+      end
+
+      unless x > 0
+        put "I can' t be see"
+      end
+
+      puts ' I am here' if x > 0
+       1 == 1 ? "ok" : "pok"
+          </div>
+
+        </div>
+      </section>
+
+
+
+      <section>
+        <h1>While</h1>
+       <div>
+      x = 10
+      while x > 1
+        puts 'I am allways here'
+        x -= 1
+      end
+
+          </div>
+      </section>
+
+      <section>
+        <h1>Until</h1>
+       <div>
+      x = 10
+      until x > 1
+        puts 'I am allways here'
+        x -= 1
+      end
+
+          </div>
+      </section>
+
+      <section>
+        <h1>Until</h1>
+       <div>
+      for x in (1..10)
+        puts "I am the #{x} call"
+      end
+
+          </div>
+      </section>
+
+      <section>
+        <h1>Until</h1>
+       <div>
+      for x in (1..10)
+        if x == 8
+          break
+        end
+        if x % 2 == 0
+          next
+        end
+        puts "I am the {x} call"
+        x = 1
+      end
+
+
+
+      10.times do
+
+      end
+
+          </div>
+      </section>
+
+      <section>
+        <h1>Les Test unitaires</h1>
+        <div>
+          <ul>
+            <li>
+              <h3>require 'test/unit'</h3>
+              <p>La librairie de test unitaire est dans la librairie standard. Il suffit de la require en début de fichier.</p>
+            </li>
+            <li>
+              <h3>Herite de Test::Units::TestCase</h3>
+              <p>Toutes classes de Test unitaire doit hériter de Test::Units::TestCase. La classe doit aussi finir par ...Test</p>
+            </li>
+            <li>
+              <h3>Nom de methode commencant par test_</h3>
+              <p>Toutes les methodes commencant par test_ seront lancé pour faire des tests. Les test ne commancant pas par ce mot clé en seront pas executé par les tests.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+
+      <section>
+        <div>
+          <ul>
+            <li>
+              <h3>assert_equal</h3>
+              <p>L'assertion de base qui vérifie que les 2 arguments sont égaux l'un par rapport à l'autre</p>
+            </li>
+            <li>
+              <h3>assert</h3>
+              <p>Permet de vérifier que l'argument donnée est true</p>
+            </li>
+            <li>
+              <h3>setup</h3>
+              <p>La méthode setup est executé avnat chaque test. Elle permet de faire des initialisation de données</p>
+            </li>
+            <li>
+              <h3>teardown</h3>
+              <p>Cette méthode si elle est defini est executé après chaque test. Elle sert a supprimer des données créés durant les tests.</p>
+            </li>
+
+          </ul>
+        </div>
+      </section>
+      <section>
+        <h1>Test unitaire</h1>
+        <div>
+          <div>
+      require 'car'
+      require 'test/unit'
+
+      class CarTest < Test::Unit::TestCase
+        def setup
+          @car = Car.new
+        end
+
+        def test_init
+          assert !@car.running?
+        end
+      end
+          </div>
+
+        </div>
+      </section>
+
+      <section>
+        <h1>Exercice 1</h1>
+        <div>
+      Ecrire une classe qui se nomme Car. Elle doit avoir une méthode
+      d'instance qui se nomme 'running ?' et qui renvoi true ou false.
+        </div>
+      </section>
+
+      <section>
+        <h1>Exercice 2</h1>
+        <div>
+      La classe Car doit avoir une methode 'run' qui demarre la voiture.
+      Une fois la voiture demarrer elle doit donc avoir la methode
+      running ? qui renvoi true
+        </div>
+      </section>
+
+      <section>
+        <h1>Exercice 3</h1>
+        <div>
+      Ajouter une methode 'stop' qui arrete la voiture de rouler. La
+      methode running ? doit donc renvoyer cette fois-ci false
+        </div>
+      </section>
+
+      <section>
+        <h1>Exercice 4</h1>
+        <div>
+      Indiquer un attribut d'instance accessible en ecriture qui indique le
+      nombre de fois que la voiture s'est arretee.
+        </div>
+      </section>
+
+      <section>
+        <h1>Exercice 5</h1>
+        <div>
+      Permettre d'ajouter un nombre de demarrage/Arr^et lors de la
+      creation d'un objet 'Car'
+        </div>
+      </section>
+
+      <section>
+        <h1>Exercice 6</h1>
+        <div>
+      Ajouter une methode de classe 'nbcar' qui indique le nombre de
+      voiture actuellement en service.
+        </div>
+      </section>
+
+      <section>
+        <h1>Exercice 7</h1>
+        <div>
+      Avoir une classe Ford qui herite de Car et ajoute une methode
+      'marque' qui renvoi l'information que c'est une Ford De meme avec
+      une Classe Renault
+        </div>
+      </section>
+
+
+      <section>
+        <h1>Exercice 8</h1>
+        <div>
+      Creer un module qui permette au class Ford et Renault d'avoir une
+      methode 'adddriver' qui ajoute des passagers a la voiture et une
+      methode 'hasdriver ?' qui renvoi true si il y a un driver.
+        </div>
+      </section>
+
+      <section>
+        <h1>Exercice 9</h1>
+        <div>
+      Ajouter une methode a la classe Car qui permette d'ajouter 1 ou 2
+      passagers. Cette methode s'appelera 'passenger'. Le premier
+      argument est le nom du premier passager et le deuxieme argument
+      est le nom du deuxieme passager.
+      Les attributs 'rstpassenger' et 'secondpassenger' sont accessible
+      en lecture
+        </div>
+      </section>
+
+      <section>
+        <h1>Exercice 10</h1>
+        <div>
+      Ajouter une methode run dans la class Ford qui fait exactement ce
+      que fait la classe Car, mais renvoi 'boom' en plus
+        </div>
+      </section>
+</div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: 'beige', //Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
