@@ -260,7 +260,26 @@ hello 'Matthieu', 'Lamarque' #Hello Matthieu Lamarque</code>    </pre>
             <br>
           </div>
           <div>
-            <pre><code class="ruby"> puts nil.class #Nil Class class Car def initialize(door) @door =door end def door @door end end class Bus &lt; Car def driver true end end bus = Bus.new(3) puts bus.door #?? puts bus.driver #?? car = Car.new(3) puts car.door #?? puts car.driver #???</code>        </pre>
+            <pre><code class="ruby">puts nil.class #Nil 
+class Car 
+  def initialize(door)
+    @door = door
+  end 
+  def door
+    @door
+  end
+end
+class Bus &lt; Car
+  def driver 
+    true
+  end
+end 
+bus = Bus.new(3) 
+puts bus.door #?? 
+puts bus.driver #?? 
+car = Car.new(3) 
+puts car.door #?? 
+puts car.driver #???</code>        </pre>
           </div>
         </section>
         <section>
