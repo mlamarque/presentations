@@ -130,8 +130,7 @@ rake db:rollback
         </section>
 
         <section>
-          <h1>Active Record Validations and Callbacks</h1>
-              <p>Why validation ? </p>
+          <h1>Validations and Callbacks</h1>
               <div>
                               <pre><code class="ruby">
 p = Person.new(:name => "John Doe")
@@ -153,7 +152,7 @@ false
         </section>
 
         <section>
-          <h1>Active Record Validations and Callbacks</h1>
+          <h1>Validations and Callbacks</h1>
           <pre><code class="ruby">acceptance (validates :terms_of_service, :acceptance => true)
 confirmation (validates :email, :confirmation => true)
 exclusion (validates :terms_of_service, :acceptance => true)
@@ -168,10 +167,9 @@ uniqueness (validates :email, :uniqueness => true)
         </section>
 
         <section>
-          <h1>Active Record Validations and Callbacks</h1>
+          <h1>Validations and Callbacks</h1>
           <ul>
             <li>
-              <p>Validations </p>
               <div>
                 <pre><code class="ruby">
 class Person < ActiveRecord::Base
@@ -210,9 +208,7 @@ ActiveRecord::RecordInvalid: Validation failed: Name cant be blank
         </section>
 
         <section>
-          <h1>Active Record Validations and Callbacks</h1>
-              <p>Callbacks </p>
-
+          <h1>Validations and Callbacks</h1>
         	<p>Create/Update/Destroy : </p>
         		<ul>
         		<li>before_validation</li>
@@ -242,7 +238,6 @@ end
 </section>
         <section>
           <h1>Associations</h1>
-        	<p>Many kinds : </p>
         		<ul>
         		<li>belongs_to</li>
         		<li>has_one</li>
