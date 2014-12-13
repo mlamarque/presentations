@@ -279,7 +279,8 @@ puts bus.door #??
 puts bus.driver #?? 
 car = Car.new(3) 
 puts car.door #?? 
-puts car.driver #???</code>        </pre>
+puts car.driver #???
+</code>        </pre>
           </div>
         </section>
         <section>
@@ -401,6 +402,32 @@ person = Person.new
 puts person.say</code>    </pre>
           </div>
         </section>
+        
+                <section>
+                  <h1>Array</h1>
+                  <br>
+                  <div>
+                    <pre><code class="ruby">
+array = Array.new
+4.times { |i| array << i }
+array.each { |arg| p arg }
+                    </code>    </pre>
+                  </div>
+                </section>
+
+                <section>
+                  <h1>Hash</h1>
+                  <br>
+                  <div>
+                    <pre><code class="ruby">
+my_hash = { "key1" => "value1", :key2  => "value2", 3 => "value 3" }
+my_hash[3] #?
+my_hash[2] #?
+                    </code>    </pre>
+                  </div>
+                </section>
+                
+                
       </div>
     </div>
 
