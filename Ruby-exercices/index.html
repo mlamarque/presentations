@@ -91,7 +91,14 @@ puts ' I am here' if x > 0
 1 == 1 ? "ok" : "pok"</code></pre>
         </div>
       </section>
-
+      <section>
+        <h1>Ternary Operator</h1>
+        <div>
+          <pre><code class="ruby">
+ true ? "this is true" : "this is not true"
+          </code></pre>
+        </div>
+      </section>
       <section>
         <h1>while/until/for</h1>
        <div>
@@ -116,7 +123,7 @@ end
       </section>
 
       <section>
-        <h1>Loop</h1>
+        <h1>Iterators</h1>
        <div>
           <pre><code class="ruby">for x in (1..10)
   if x == 8
@@ -138,12 +145,19 @@ end
            </pre>
           </div>
       </section>
+            <section>
+              <h1>Iterators</h1>
+             <div>
+                <pre><code class="ruby">
+person = {name: 'bob', height: '6 ft', weight: '160 lbs', hair: 'brown'}
 
-      <section>
-        <h1>Test, Test and Test...</h1>
-        <div>
-        </div>
-      </section>
+person.each do |key, value|
+  puts "Bob's #{key} is #{value}"
+end
+               </code>
+                 </pre>
+                </div>
+            </section>
 </div>
     </div>
 

@@ -40,7 +40,7 @@
           <h1>Ruby INTRODUCTION</h1>
         </section>
         <section>
-          <h1>Historic</h1>
+          <h1>Historical</h1>
           <p>
             <br>
           </p>
@@ -64,6 +64,7 @@
           <p>Dynamic typing</p>
           <p>No brackets</p>
           <p>No "main" </p>
+          <p><a href="https://github.com/styleguide/ruby" target="blank"> Ruby - Style Guide </a></p>
           <p>
             <br>
           </p>
@@ -72,21 +73,9 @@
           </ul>
         </section>
         <section>
-          <h1>Installation</h1>
-          <div>
-            <br>
-          </div>
-          <div>
-            <p>Dependencies :</p>
-            <br>
-            <pre><code>sudo apt-get install curl git-core build-essential zlib1g-dev libssl-dev libreadline6-dev gem libyaml-dev </code></pre>
-          </div>
-        </section>
-        <section>
           <h1>Installation Ruby</h1>
           <br>
           <div>
-            <pre><code>sudo apt-get install ruby</code></pre>
             <p>
               <br>
             </p>
@@ -101,17 +90,6 @@
             <pre><code>sudo apt-get install rubygems
 gem install rails
 gem list</code></pre>
-          </div>
-        </section>
-        <section>
-          <h1>Rails dependencies</h1>
-          <div>
-            <br>
-          </div>
-          <div>
-            <pre><code>gem install execjs
-gem install therubyracer
-                </code></pre>
           </div>
         </section>
         <section>
@@ -185,6 +163,15 @@ puts 1 &lt;=&gt; 1 #??
           <br>
         </section>
         <section>
+          <h1>Hashes</h1>
+          <pre><code class="ruby">a = {:dog => 'barks', :cat => 'meows', :pig => 'oinks'}
+a = {dog: 'barks', cat: 'meows', pig: 'oinks'}
+a[:dog] # =>barks
+</code>
+        </pre>
+        </section>
+        
+        <section>
           <h1>variables</h1>
           <span style="text-align: left;">Local foo</span>
           <br>
@@ -246,6 +233,15 @@ hello 'Matthieu', 'Lamarque' #Hello Matthieu Lamarque</code>    </pre>
           <br>
         </section>
         <section>
+          <h1>CLASS / INSTANCE METHOD</h1>
+          <div>
+            <br>
+          </div>
+          <br>
+          <div>One class</div>
+          <div>Many instances</div>
+        </section>
+        <section>
           <h1>CLASS</h1>
           <div>
             <br>
@@ -279,8 +275,7 @@ puts bus.door #??
 puts bus.driver #?? 
 car = Car.new(3) 
 puts car.door #?? 
-puts car.driver #???
-</code>        </pre>
+puts car.driver #???</code>        </pre>
           </div>
         </section>
         <section>
@@ -295,13 +290,6 @@ class String
   end
 end
 puts "Hello".bye #???</code>            </pre>
-          <pre><code class="ruby">obj = Object.new
-def obj.show
- 'me'
-end 
-puts obj.show #??
-o = Object.new
-o.show #??</code>        </pre>
           <br>
         </section>
         <section>
@@ -321,15 +309,6 @@ puts c.me #???
 puts c #??? 
 puts c==c.me #???</code>    </pre>
           <br>
-        </section>
-        <section>
-          <h1>CLASS / INSTANCE METHOD</h1>
-          <div>
-            <br>
-          </div>
-          <br>
-          <div>One class</div>
-          <div>Many instances</div>
         </section>
         <section>
           <h1>Self</h1>
@@ -353,6 +332,8 @@ c = Car.big
 c.door #???</code>    </pre>
           </div>
         </section>
+
+        
         <section>
           <h1>MODULeS</h1>
           <div>
@@ -402,32 +383,6 @@ person = Person.new
 puts person.say</code>    </pre>
           </div>
         </section>
-        
-                <section>
-                  <h1>Array</h1>
-                  <br>
-                  <div>
-                    <pre><code class="ruby">
-array = Array.new
-4.times { |i| array << i }
-array.each { |arg| p arg }
-                    </code>    </pre>
-                  </div>
-                </section>
-
-                <section>
-                  <h1>Hash</h1>
-                  <br>
-                  <div>
-                    <pre><code class="ruby">
-my_hash = { "key1" => "value1", :key2  => "value2", 3 => "value 3" }
-my_hash[3] #?
-my_hash[2] #?
-                    </code>    </pre>
-                  </div>
-                </section>
-                
-                
       </div>
     </div>
 
