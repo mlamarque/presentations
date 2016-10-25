@@ -42,12 +42,11 @@
         <h1>Naming convention</h1>
         <ul>
       <li>
-        Use CamelCase for classes and modules.</li>
-
+        Use CamelCase for classes and modules.</li><br>
       <li>
-        Use snake_case for symbols, methods and variables</li>
+        Use snake_case for symbols, methods and variables</li><br>
       <li>
-        The names of predicate methods (methods that return a boolean value) should end in a question mark</li>
+        The names of predicate methods (methods that return a boolean value) should end in a question mark</li><br>
       <li>
         The names of potentially dangerous methods (methods that modify self or the arguments, exit! etc.) should end with an exclamation mark.</li>
         </ul>
@@ -157,6 +156,66 @@ end
                  </pre>
                 </div>
             </section>
+      <section>
+        <h1>Exercice 1</h1>
+        <div>
+           <pre><code class="ruby">
+# Faire une fonction qui permet d'afficher 
+# une liste par ordre alphabetique (et le contraire).
+# Tips : <=>
+
+books = [
+  "Heart of Darkness", "Code Complete", "The Lorax", 
+  "The Prophet", "Absalom, Absalom!"
+  ]
+        </code></pre></code>
+      </section>
+      <section>
+        <h1>Exercice 2</h1>
+        <div>
+           <pre><code class="ruby">
+# Faire un objet Ordinateur.
+# Un ordinateur possède des utilisateurs.
+# On peut créer des fichiers, via un nom, sur l'ordinateur. 
+# Chaque fichier possède une heure de création.
+# Permettre de voir tous les users connectés à un ordinateur.
+
+        </code></pre></code>
+      </section>
+            <section>
+              <h1>Exercice 3.1</h1>
+              <div style='text-align:left'>
+<p>Un compte est associé a un nom et possède un solde.</p>
+<p>Le solde par defaut est 100.</p>
+<p>Faire une methode pour afficher le solde du compte</p>
+<p>Faire une methode pour retirer de l'argent du compte</p>
+<p>Faire une verification pour savoir si le compte dispose des fonds nécessaires.</p>
+<p>Ajouter un code qui sera indispensable pour : afficher la balance du compte, faire un retrait, ou un depot.</p>
+<p>Le code est un element privé et "fix"</p>
+
+
+              </div>
+            </section>
+                    <section>
+                      <h1>Exercice 3.2</h1>
+                      <div style='text-align:left'>
+<p>La banque veut sauvegarder les actions sur du compte.</p>
+   <p>     Faire un fichier et écrire dedans :</p>
+      <p>  Format :</p>
+      <p>  ADD : MONTANT : DATE</p>
+      <p>  DEL : MONTANT : DATE</p>
+      <p>  SHO : MONTANT : DATE</p>
+
+                      </div>
+                    </section>
+          <section>
+            <h1>Exercice 3.3</h1>
+            <div style='text-align:left'>
+<p>importer : </p>
+<p>{ toto: { balance: 199 }, tata: { balance: -199 }, tutu: { balance: 0 } }
+</p>
+            </div>
+          </section>
 </div>
     </div>
 
