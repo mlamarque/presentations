@@ -65,23 +65,11 @@
               <li>Controllers</li>
             </ul>
         </section>
-
-        <section>
-          <h1>Rails components</h1>
-          <ul>
-            <li>Action Pack (Action Controller (manage parameters, session, template and redirection), Action View (interface) et Action Dispatch (routing))</li>
-            <li>Action Mailer</li>
-            <li>Active Model (OMR)</li>
-            <li>Active Record (base des modèles Rails, CRUD)</li>
-            <li>Active Support (utility class)</li>
-          </ul>
-        </section>
-
         <section>
           <h1>Create an application</h1>
           <ul>
             <li>
-              rails new market
+              rails new app_name
             </li>
             <li>
               Zoom in a application's folder
@@ -90,7 +78,7 @@
               rake
             </li>
            <li>
-              rails route
+              rake routes
             </li>
         </section>
 
@@ -133,7 +121,7 @@ rake db:rollback
           <h1>Validations and Callbacks</h1>
               <div>
                               <pre><code class="ruby">
-p = Person.new(:name => "John Doe")
+p = Person.new(name: "John Doe")
 p.new_record?
 true
 p.save
@@ -146,22 +134,26 @@ false
         	  <p>Many methods to save an object : </p>
         		<ul>
         		<li>create</li>
-        		<li>save</li>
+        		<li>new/save</li>
             <li>update_attributes</li>
         		</ul>
         </section>
 
         <section>
           <h1>Validations and Callbacks</h1>
-          <pre><code class="ruby">acceptance (validates :terms_of_service, :acceptance => true)
-confirmation (validates :email, :confirmation => true)
-exclusion (validates :terms_of_service, :acceptance => true)
-format (validates :subdomain, :exclusion => { :in => %w(www us ca jp), :message => "Subdomain %{value} is reserved." })
-inclusion (validates :size, :inclusion => { :in => %w(small medium large), :message => "%{value} is not a valid size" })
-length (validates :name, :length => { :minimum => 2 })
-numericality (validates :points, :numericality => true)
-presence (validates :order_id, :presence => true)
-uniqueness (validates :email, :uniqueness => true)
+          <pre><code class="ruby">
+validates :name, length: { minimum: 2 }
+validates :bio, length: { maximum: 500 }
+validates :password, length: { in: 6..20 }
+validates :registration_number, length: { is: 6 }
+validates :terms_of_service, acceptance: true
+validates :subdomain, exclusion: { in: %w(www us ca jp)
+validates :legacy_code, format: { with: /\A[a-zA-Z]+\z/, message: "only allows letters" }
+validates :size, inclusion: { in: %w(small medium large), message: "%{value} is not a valid size" }
+validates :points, numericality: true
+validates :name, :login, :email, presence: true
+validates :email, uniqueness: true
+validates :name, uniqueness: { scope: :year, message: "should happen once per year" }
             </code>
             </pre>
         </section>
@@ -173,7 +165,7 @@ uniqueness (validates :email, :uniqueness => true)
               <div>
                 <pre><code class="ruby">
 class Person < ActiveRecord::Base
-  validates :name, :presence => true
+  validates :name, presence: true
 end
 
  p = Person.new
@@ -227,7 +219,7 @@ ActiveRecord::RecordInvalid: Validation failed: Name cant be blank
 <section>
   <div>
     <pre><code class="ruby">class Person < ActiveRecord::Base
-  validates :name, :presence => true
+  validates :name, presence: true
   after_create :todo
 
   def todo
@@ -267,7 +259,7 @@ end
         			    <div>
         			      <pre><code class="ruby">class Physician < ActiveRecord::Base
   has_many :appointments
-  has_many :patients, :through => :appointments
+  has_many :patients, through: :appointments
 end
 
 class Appointment < ActiveRecord::Base
@@ -277,7 +269,7 @@ end
 
 class Patient < ActiveRecord::Base
   has_many :appointments
-  has_many :physicians, :through => :appointments
+  has_many :physicians, through: :appointments
 end
         			        </code>
         			        </pre>
@@ -308,8 +300,8 @@ end
 client = Client.first
 client = Client.last
 Client.where("orders_count = ?", params[:orders])
-Client.where(:locked => true)
-Client.where(:orders_count => [1,3,5])
+Client.where(locked: true)
+Client.where(orders_count: [1,3,5])
 Client.order("created_at")
 Client.limit(5).offset(30)
 Client.connection.select_all("SELECT * FROM clients WHERE id = '1'")
@@ -323,15 +315,11 @@ Client.connection.select_all("SELECT * FROM clients WHERE id = '1'")
           <h1>Active Record : Scopes</h1>
         			    <div>
 <pre><code class="ruby">class User
-  scope :majors, where(:major => true)
-  scope :by_age, lambda do |age|
-  	joins(:profile).where('profile.age = ?', age) unless age.nil?
-  end
-  scope :by_name, lambda{ |name| where(name: name) unless name.nil? }
-  scope :by_email, lambda do |email|
-  	joins(:profile).where('profile.email = ?', email) unless email.nil?
-  end
+  scope :published, -> { where(published: true) }
+  scope :created_before, ->(time) { where("created_at < ?", time) }
 end
+
+User.published.created_before(Time.now)
         </code>
         </pre>
               </div>
@@ -352,7 +340,7 @@ end
                </div>
 
              <p>params #request parameters (hash)</p>
-         <p> <pre><code>{ :name => "acme", :address => "123 Carrot Street", :company => { :name => "acme", :address => "123 Carrot Street" }}</code></pre></p>
+         <p> <pre><code>{ name: "acme", address: "123 Carrot Street", company: { name: "acme", address: "123 Carrot Street" }}</code></pre></p>
              </section>
              <section>
            <h1>Action Controller - Render</h1>
@@ -362,9 +350,9 @@ end
  def index
    @users = User.all
    respond_to do |format|
-     format.html # index.html.erb
-     format.xml  { render :xml => @users}
-     format.json { render :json => @users}
+     format.html # index.html.slim
+     format.xml  { render xml: @users}
+     format.json { render json: @users}
    end
  end
 end
