@@ -174,11 +174,16 @@ books = [
         <h1>Exercice 2</h1>
         <div>
            <pre><code class="ruby">
-# Faire un objet Ordinateur.
-# Un ordinateur possède des utilisateurs.
-# On peut créer des fichiers, via un nom, sur l'ordinateur. 
-# Chaque fichier possède une heure de création.
-# Permettre de voir tous les users connectés à un ordinateur.
+# Faire une class Car
+# Une Car doit pouvoir etre instancié
+# Une méthode doit démarrer la voiture
+# Une méthode doit arreter la voiture
+# Une Car doit pouvoir rentrer et sortir dans un Parking
+# Chaque Car possède un compteur du nombre de stop qu'elle a effectué depuis le debut
+
+# Une Citroen doit pouvoir etre fabriquer à partir des definitions ci dessus
+
+# Rendre possible la création de Car via la commande : 3.cars
 
         </code></pre></code>
       </section>
@@ -189,17 +194,16 @@ books = [
 <p>Le solde par defaut est 100.</p>
 <p>Faire une methode pour afficher le solde du compte</p>
 <p>Faire une methode pour retirer de l'argent du compte</p>
+<p>Faire une methode pour ajouter de l'argent du compte</p>
 <p>Faire une verification pour savoir si le compte dispose des fonds nécessaires.</p>
-<p>Ajouter un code qui sera indispensable pour : afficher la balance du compte, faire un retrait, ou un depot.</p>
-<p>Le code est un element privé et "fix"</p>
-
+<p>Un compte dispose d'une autorisation de découvert ajustable à l'ouverture d'un compte, si il est dépassé une alerte doit prévenir le client</p>
 
               </div>
             </section>
                     <section>
                       <h1>Exercice 3.2</h1>
                       <div style='text-align:left'>
-<p>La banque veut sauvegarder les actions sur du compte.</p>
+<p>La banque veut sauvegarder les actions d'un compte.</p>
    <p>     Faire un fichier et écrire dedans :</p>
       <p>  Format :</p>
       <p>  ADD : MONTANT : DATE</p>
@@ -212,7 +216,11 @@ books = [
             <h1>Exercice 3.3</h1>
             <div style='text-align:left'>
 <p>importer : </p>
-<p>{ toto: { balance: 199 }, tata: { balance: -199 }, tutu: { balance: 0 } }
+<p>{
+  (Time.now-20.days).to_date.to_s => [{amount: 10}],
+  (Time.now-2.days).to_date.to_s => [{amount: -100}, {amount: 90}],
+  (Time.now-1.days).to_date.to_s => [{amount: 10}]
+}
 </p>
             </div>
           </section>
